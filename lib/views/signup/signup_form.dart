@@ -13,8 +13,8 @@ class _SignupFormState extends State<SignupForm> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
   final FontWeight titleFontWeight = AppConfig.titleFontWeight;
-  final double subTitleFontSize = AppConfig.subTitleFontSize;
-  final FontWeight subTitleFontWeight = AppConfig.subTitleFontWeight;
+  final double subHeadingFontSize = AppConfig.subHeadingFontSize;
+  final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
   final double noteFontSize = AppConfig.noteFontSize;
   final FontWeight noteFontWeight = AppConfig.noteFontWeight;
   final double headingFontSize = AppConfig.headingFontSize;
@@ -24,7 +24,6 @@ class _SignupFormState extends State<SignupForm> {
   bool _obscureText = true;
   bool _isPolicyAccepted = false;
   bool _isReceivingMailsAccepted = false;
-
 
   @override
   void initState() {
@@ -119,8 +118,8 @@ class _SignupFormState extends State<SignupForm> {
                   "We didn't find an account with that email address. Create a password to create a new account.",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
-                    fontSize: subTitleFontSize,
-                    fontWeight: subTitleFontWeight,
+                    fontSize: subHeadingFontSize,
+                    fontWeight: subHeadingFontWeight,
                   ),
                 ),
               ],

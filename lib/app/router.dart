@@ -15,7 +15,9 @@
 //   }
 // }
 
+import 'package:ecommerce_application/views/cart/cart_page.dart';
 import 'package:ecommerce_application/views/settings/settings_page.dart';
+import 'package:ecommerce_application/views/settings/sub_pages/orders_page.dart';
 import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,10 @@ class AppRouter {
         return _createPageRoute(const ForgotPasswordPage());
       case '/settings':
         return _createPageRoute(const SettingsPage());
+      case '/cart':
+        return _createPageRoute(const CartPage());
+      case '/orders':
+        return _createPageRoute(const OrdersPage());
       default:
         return _createPageRoute(const AuthPage());
     }
