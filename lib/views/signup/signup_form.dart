@@ -12,13 +12,19 @@ class SignupForm extends StatefulWidget {
 class _SignupFormState extends State<SignupForm> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
-  final double noteFontSize = AppConfig.noteFontSize;
+  final FontWeight titleFontWeight = AppConfig.titleFontWeight;
   final double subTitleFontSize = AppConfig.subTitleFontSize;
+  final FontWeight subTitleFontWeight = AppConfig.subTitleFontWeight;
+  final double noteFontSize = AppConfig.noteFontSize;
+  final FontWeight noteFontWeight = AppConfig.noteFontWeight;
+  final double headingFontSize = AppConfig.headingFontSize;
+  final FontWeight headingFontWeight = AppConfig.headingFontWeight;
   final _formKey = GlobalKey<FormState>();
   final FocusNode _focusNodePassword = FocusNode();
   bool _obscureText = true;
   bool _isPolicyAccepted = false;
   bool _isReceivingMailsAccepted = false;
+
 
   @override
   void initState() {
@@ -69,7 +75,7 @@ class _SignupFormState extends State<SignupForm> {
             style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: titleFontSize,
-                fontWeight: FontWeight.w700),
+                fontWeight: titleFontWeight),
           ),
           SizedBox(height: sizedBoxHeight),
           Container(
@@ -82,8 +88,8 @@ class _SignupFormState extends State<SignupForm> {
                   "Email@gmail.com",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
-                    fontSize: subTitleFontSize,
-                    fontWeight: FontWeight.w700,
+                    fontSize: headingFontSize,
+                    fontWeight: headingFontWeight,
                   ),
                 ),
                 SizedBox(width: sizedBoxHeight),
@@ -114,7 +120,7 @@ class _SignupFormState extends State<SignupForm> {
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: subTitleFontSize,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: subTitleFontWeight,
                   ),
                 ),
               ],
@@ -160,7 +166,7 @@ class _SignupFormState extends State<SignupForm> {
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: noteFontSize,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: noteFontWeight,
                   ),
                 ),
                 TextButton(
@@ -180,7 +186,7 @@ class _SignupFormState extends State<SignupForm> {
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: noteFontSize,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: noteFontWeight,
                   ),
                 ),
                 TextButton(
@@ -213,7 +219,7 @@ class _SignupFormState extends State<SignupForm> {
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: noteFontSize,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: noteFontWeight,
                   ),
                 ),
               ],

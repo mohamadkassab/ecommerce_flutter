@@ -1,34 +1,30 @@
+import 'package:ecommerce_application/app/app_config.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalLine extends StatelessWidget {
-  final String text;
   final double thickness;
+  final double opacity;
 
   const HorizontalLine({
     super.key,
-     this.text = "or",
-     this.thickness = 1,
-     });
+    this.thickness = 8,
+    this.opacity = 0.1,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final double padding = AppConfig.scaffoldPadding;
     return Row(
       children: [
         Expanded(
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16.0),
-            child:  Divider(thickness: thickness, color: Theme.of(context).colorScheme.secondary),
-          ),
-        ),
-        Text(
-          text,
-          style:
-               TextStyle(color: Theme.of(context).colorScheme.secondary, fontWeight: FontWeight.bold),
-        ),
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16.0),
-            child:  Divider(thickness: thickness, color: Theme.of(context).colorScheme.secondary),
+            margin: EdgeInsets.symmetric(horizontal: padding),
+            child: Divider(
+                thickness: thickness,
+                color: Theme.of(context)
+                    .colorScheme
+                    .secondary
+                    .withOpacity(opacity)),
           ),
         ),
       ],

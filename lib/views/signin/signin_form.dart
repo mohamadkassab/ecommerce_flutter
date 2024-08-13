@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_application/components/button/primary_button.dart';
 
 class SigninForm extends StatefulWidget {
-  final void Function(bool) onForgotPassword;
-
-  const SigninForm({super.key, required this.onForgotPassword});
+  const SigninForm({super.key});
 
   @override
   _SignupFormState createState() => _SignupFormState();
@@ -14,8 +12,14 @@ class SigninForm extends StatefulWidget {
 class _SignupFormState extends State<SigninForm> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
-  final double noteFontSize = AppConfig.noteFontSize;
+  final FontWeight titleFontWeight = AppConfig.titleFontWeight;
   final double subTitleFontSize = AppConfig.subTitleFontSize;
+  final FontWeight subTitleFontWeight = AppConfig.subTitleFontWeight;
+  final double noteFontSize = AppConfig.noteFontSize;
+  final FontWeight noteFontWeight = AppConfig.noteFontWeight;
+  final double headingFontSize = AppConfig.headingFontSize;
+  final FontWeight headingFontWeight = AppConfig.headingFontWeight;
+
   final _formKey = GlobalKey<FormState>();
   final FocusNode _focusNodePassword = FocusNode();
   bool _obscureText = true;
@@ -51,7 +55,7 @@ class _SignupFormState extends State<SigninForm> {
             style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: titleFontSize,
-                fontWeight: FontWeight.w700),
+                fontWeight: titleFontWeight),
           ),
           SizedBox(height: sizedBoxHeight),
           Container(
@@ -64,8 +68,8 @@ class _SignupFormState extends State<SigninForm> {
                   "Email@gmail.com",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
-                    fontSize: subTitleFontSize,
-                    fontWeight: FontWeight.w700,
+                    fontSize: headingFontSize,
+                    fontWeight: headingFontWeight,
                   ),
                 ),
                 SizedBox(width: sizedBoxHeight),
@@ -96,13 +100,13 @@ class _SignupFormState extends State<SigninForm> {
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: subTitleFontSize,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: subTitleFontWeight,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: sizedBoxHeight),
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Enter your password',
@@ -131,7 +135,7 @@ class _SignupFormState extends State<SigninForm> {
             children: [
               TextButton(
                 onPressed: () {
-                  widget.onForgotPassword!(true);
+                  Navigator.pushNamed(context, "/forgot_password");
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
@@ -140,7 +144,7 @@ class _SignupFormState extends State<SigninForm> {
                   alignment: Alignment.centerLeft,
                 ),
                 child: const Align(
-                  alignment: Alignment.centerRight, 
+                  alignment: Alignment.centerRight,
                   child: Text('Forgot password?'),
                 ),
               ),
@@ -154,5 +158,3 @@ class _SignupFormState extends State<SigninForm> {
     );
   }
 }
-
-

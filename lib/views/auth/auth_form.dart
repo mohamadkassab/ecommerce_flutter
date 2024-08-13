@@ -1,7 +1,7 @@
 import 'package:ecommerce_application/app/app_config.dart';
 import 'package:ecommerce_application/components/button/logo_button.dart';
 import 'package:ecommerce_application/components/button/primary_button.dart';
-import 'package:ecommerce_application/components/line/horizontal_line.dart';
+import 'package:ecommerce_application/components/line/horizontal_text_line.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../controllers/auth_controller.dart';
@@ -20,7 +20,9 @@ class _SigninFormState extends State<AuthForm> {
   final FocusNode _focusNodeEmail = FocusNode();
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
+  final FontWeight titleFontWeight = AppConfig.titleFontWeight;
   final double noteFontSize = AppConfig.noteFontSize;
+  final FontWeight noteFontWeight = AppConfig.noteFontWeight;
   String _email = '';
 
   @override
@@ -48,7 +50,7 @@ class _SigninFormState extends State<AuthForm> {
             style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: titleFontSize,
-                fontWeight: FontWeight.w700),
+                fontWeight: titleFontWeight),
           ),
           SizedBox(height: sizedBoxHeight),
           TextFormField(
@@ -87,7 +89,7 @@ class _SigninFormState extends State<AuthForm> {
                 }
               }),
           SizedBox(height: sizedBoxHeight),
-          const HorizontalLine(),
+          const HorizontaTextlLine(),
           SizedBox(height: sizedBoxHeight),
           LogoButton(
               icon: SvgPicture.asset('assets/images/google_icon.svg',
@@ -108,7 +110,7 @@ class _SigninFormState extends State<AuthForm> {
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: noteFontSize,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: noteFontWeight,
                 ),
               ),
               TextButton(
@@ -128,7 +130,7 @@ class _SigninFormState extends State<AuthForm> {
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: noteFontSize,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: noteFontWeight,
                 ),
               ),
               TextButton(

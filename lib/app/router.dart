@@ -15,6 +15,8 @@
 //   }
 // }
 
+import 'package:ecommerce_application/views/settings/settings_page.dart';
+import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
 import 'package:flutter/material.dart';
 import '../views/auth/auth_page.dart';
@@ -29,6 +31,10 @@ class AppRouter {
         return _createPageRoute(const SignupPage());
       case '/signin':
         return _createPageRoute(const SigninPage());
+      case '/forgot_password':
+        return _createPageRoute(const ForgotPasswordPage());
+      case '/settings':
+        return _createPageRoute(const SettingsPage());
       default:
         return _createPageRoute(const AuthPage());
     }

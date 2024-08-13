@@ -2,16 +2,15 @@ import 'package:ecommerce_application/app/app_config.dart';
 import 'package:ecommerce_application/components/button/primary_button.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPasswordForm extends StatefulWidget {
-  final void Function(bool) onOTP;
-
-  const ForgotPasswordForm({super.key, required this.onOTP});
+class OTPForm extends StatefulWidget {
+  final void Function(bool) onNewPassword;
+  const OTPForm({super.key, required this.onNewPassword});
 
   @override
-  _ForgotPasswordFormState createState() => _ForgotPasswordFormState();
+  _OTPFormState createState() => _OTPFormState();
 }
 
-class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
+class _OTPFormState extends State<OTPForm> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
   final FontWeight titleFontWeight = AppConfig.titleFontWeight;
@@ -21,13 +20,43 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   final FontWeight noteFontWeight = AppConfig.noteFontWeight;
   final double headingFontSize = AppConfig.headingFontSize;
   final FontWeight headingFontWeight = AppConfig.headingFontWeight;
+  final int otpNumber = 6;
+  late final _otpControllers =
+      List.generate(otpNumber, (index) => TextEditingController());
+  late final _focusNodes = List.generate(otpNumber, (index) => FocusNode());
+
+  @override
+  void initState() {
+    super.initState();
+    _otpControllers.forEach((controller) {
+      controller.addListener(() {
+        _onOTPChanged(controller);
+      });
+    });
+  }
+
+  void _onOTPChanged(TextEditingController controller) {
+    final index = _otpControllers.indexOf(controller);
+    if (controller.text.length == 1 && index < 5) {
+      FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+    } else if (index == 5 && controller.text.length == 1) {
+      widget.onNewPassword(true);
+    }
+  }
+
+  @override
+  void dispose() {
+    _otpControllers.forEach((controller) => controller.dispose());
+    _focusNodes.forEach((node) => node.dispose());
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          'Forgot password?',
+          'Verify',
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
               fontSize: titleFontSize,
@@ -41,11 +70,11 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Text(
-                "Email@gmail.com",
+                "Code sent",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
-                  fontSize: headingFontSize,
-                  fontWeight: headingFontWeight,
+                  fontSize: subTitleFontSize,
+                  fontWeight: subTitleFontWeight,
                 ),
               ),
               SizedBox(width: sizedBoxHeight),
@@ -59,7 +88,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerLeft,
                 ),
-                child: Text('Change'),
+                child: Text('Resend'),
               ),
             ],
           ),
@@ -72,23 +101,50 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Text(
-                "We can send you an email with a one-time password (OTP) that you can use to reset your password.",
+                "Enter the temporary password reset code we sent to your email address: \n",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: subTitleFontSize,
                   fontWeight: subTitleFontWeight,
                 ),
               ),
+              Text(
+                "Email@gmail.com",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: headingFontSize,
+                  fontWeight: headingFontWeight,
+                ),
+              ),
             ],
           ),
         ),
         SizedBox(height: sizedBoxHeight),
-        PrimaryButton(
-            text: 'Reset your password',
-            width: double.infinity,
-            onPressed: () async {
-              widget.onOTP(true);
-            }),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            otpNumber,
+            (index) {
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 8.0),
+                child: SizedBox(
+                  width: 40,
+                  child: TextField(
+                    controller: _otpControllers[index],
+                    focusNode: _focusNodes[index],
+                    keyboardType: TextInputType.number,
+                    textAlign: TextAlign.center,
+                    maxLength: 1,
+                    decoration: InputDecoration(
+                      counterText: '',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
       ],
     );
   }
