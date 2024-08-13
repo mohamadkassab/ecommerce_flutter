@@ -15,6 +15,7 @@
 //   }
 // }
 
+import 'package:ecommerce_application/views/home/home_page.dart';
 import 'package:ecommerce_application/views/settings/settings_page.dart';
 import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
@@ -33,6 +34,8 @@ class AppRouter {
         return _createPageRoute(const SigninPage());
       case '/forgot_password':
         return _createPageRoute(const ForgotPasswordPage());
+      case '/home_page':
+        return _createPageRoute(const HomePage());
       case '/settings':
         return _createPageRoute(const SettingsPage());
       default:
@@ -47,13 +50,13 @@ class AppRouter {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.easeInOut;
-        
+
         var tween = Tween(begin: begin, end: end);
-        var offsetAnimation = animation.drive(tween.chain(CurveTween(curve: curve)));
+        var offsetAnimation =
+            animation.drive(tween.chain(CurveTween(curve: curve)));
 
         return SlideTransition(position: offsetAnimation, child: child);
       },
     );
   }
 }
-
