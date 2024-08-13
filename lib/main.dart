@@ -3,6 +3,8 @@ import 'app/app.dart';
 import 'package:provider/provider.dart';
 import 'controllers/auth_controller.dart';
 
+// entry point
+
 void main() {
   runApp(
     MultiProvider(
