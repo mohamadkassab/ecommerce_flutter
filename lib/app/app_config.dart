@@ -21,5 +21,7 @@ class AppConfig {
   static const Color surface = Color.fromARGB(255, 255, 255, 255);
   static const Color secondary = Color.fromARGB(255, 161, 161, 161);
   static const Color error = Color.fromARGB(255, 229, 57, 53);
-  static const Color tertiary = Color.fromARGB(255, 200, 253, 79);
+  // static const Color tertiary = Color.fromARGB(255, 200, 254, 79);
+  static const Color tertiary = Colors.green;
+  static const Color categoriesBackgroundItem = Color(0xFFEEEEEE);
 }

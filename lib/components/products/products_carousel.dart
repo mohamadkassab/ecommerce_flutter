@@ -17,42 +17,42 @@ class _ProductsCarouselState extends State<ProductsCarousel> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final itemWidth = 150.0;
+    final itemWidth = 125.0;
     final itemMargin = 15.0;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       child: Container(
         width: screenWidth,
         child: Stack(
           children: [
             CarouselSlider(
               options: CarouselOptions(
-                height: 200.0,
+                height: 220.0, // Adjust height based on content
                 viewportFraction: (itemWidth + itemMargin) / screenWidth,
                 enableInfiniteScroll: true,
-                autoPlay: true,
               ),
               items: widget.products.map((product) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
                       width: itemWidth,
-                      margin: EdgeInsets.symmetric(
-                          horizontal:
-                              itemMargin / 2), // Apply half margin on each side
+                      margin: EdgeInsets.symmetric(horizontal: itemMargin / 2),
                       decoration: BoxDecoration(color: AppConfig.surface),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Image.network(
-                            product["image"]!,
-                            fit: BoxFit.cover,
-                            height: 100,
-                            width:
-                                itemWidth, // Match the width of the container
+                          ClipRRect(
+                            borderRadius:
+                                BorderRadius.circular(AppConfig.globalRadius),
+                            child: Image.network(
+                              product["image"]!,
+                              fit: BoxFit.cover,
+                              height: itemWidth, // Height and width are equal
+                              width: itemWidth, // Makes the image square
+                            ),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: 5), // Adjusted spacing
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: AppConfig.globalRadius),
@@ -71,7 +71,21 @@ class _ProductsCarouselState extends State<ProductsCarousel> {
                               product["price"]!,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.grey,
+                                color: AppConfig.primary,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: AppConfig.globalRadius),
+                            child: Text(
+                              "Label text goes here", // Replace with actual label
+                              maxLines: 2, // Limit to 2 lines
+                              overflow: TextOverflow
+                                  .ellipsis, // Show "..." if text is too long
+                              style: TextStyle(
+                                fontSize: 12, // Adjust font size as needed
+                                color: Colors.grey.shade600,
                               ),
                             ),
                           ),
@@ -81,24 +95,6 @@ class _ProductsCarouselState extends State<ProductsCarousel> {
                   },
                 );
               }).toList(),
-            ),
-            Positioned(
-              left: 0,
-              top: 0,
-              bottom: 0,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                onPressed: () {},
-              ),
-            ),
-            Positioned(
-              right: 0,
-              top: 0,
-              bottom: 0,
-              child: IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: () {},
-              ),
             ),
           ],
         ),

@@ -3,6 +3,8 @@ import 'package:ecommerce_application/app/app_config.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_application/components/products/products_carousel.dart';
 import 'package:flutter_cube/flutter_cube.dart';
+import 'package:ecommerce_application/views/settings/settings_page.dart';
+import 'package:ecommerce_application/views/categories/categories_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  // Example data, you can replace this with dynamic data
+  // products dummy data
   final List<Map<String, String>> _products = [
     {
       "image": "https://i.ebayimg.com/images/g/hyEAAOSw85tfSGn1/s-l1200.jpg",
@@ -74,37 +76,50 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
+            Container(
+              color:
+                  AppConfig.surface, // Set your desired background color here
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search...',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                              Radius.circular(AppConfig.globalRadius)),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(
+                    5.0, 30.0, 8.0, 10.0), // Padding: left, top, right, bottom
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: SizedBox(
+                        height: 50.0, // Set the desired height here
+                        child: TextField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: AppConfig.surface,
+                            prefixIconColor: AppConfig.primary,
+                            hintText: 'Search...',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(AppConfig.globalRadius)),
+                            ),
+                            prefixIcon: Icon(Icons.search),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color:
-                          AppConfig.primary, // Background color for the button
-                      borderRadius: BorderRadius.circular(
-                          AppConfig.globalRadius), // Rounded corners
+                    SizedBox(width: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppConfig
+                            .surface, // Background color for the button
+                        borderRadius: BorderRadius.circular(
+                            AppConfig.globalRadius), // Rounded corners
+                      ),
+                      child: IconButton(
+                        icon: Icon(Icons.notification_important_outlined),
+                        color: AppConfig.tertiary,
+                        iconSize: 35.0,
+                        onPressed: () {},
+                      ),
                     ),
-                    child: IconButton(
-                      icon: Icon(Icons.search),
-                      color: Colors.white,
-                      iconSize: 35.0,
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -116,13 +131,18 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 width: double.infinity,
                 height: 200, // Adjust the height as needed
-                child: Image.asset(
-                  'assets/images/e-commerce.jpg', // Replace with your image asset path
-                  fit: BoxFit.cover, // Adjust the fit property as needed
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      AppConfig.globalRadius), // Set the desired border radius
+                  child: Image.asset(
+                    'assets/images/image4.jpg', // Replace with your image asset path
+                    fit: BoxFit.cover, // Adjust the fit property as needed
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: AppConfig.sizedBoxHeight),
+
+            SizedBox(height: AppConfig.sizedBoxHeight * 2),
 
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -132,15 +152,15 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'New Arrival',
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                      fontSize: AppConfig.headingFontSize,
+                      fontWeight: AppConfig.headingFontWeight,
                     ),
                   ),
                   Text(
                     'See All',
                     style: TextStyle(
                       fontSize: 16,
-                      color: AppConfig.linkColor,
+                      color: AppConfig.tertiary,
                     ),
                   ),
                 ],
@@ -162,15 +182,15 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Best Seller',
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                      fontSize: AppConfig.headingFontSize,
+                      fontWeight: AppConfig.headingFontWeight,
                     ),
                   ),
                   Text(
                     'See All',
                     style: TextStyle(
                       fontSize: 16,
-                      color: AppConfig.linkColor,
+                      color: AppConfig.tertiary,
                     ),
                   ),
                 ],
@@ -184,24 +204,14 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      Center(
-        child: Text(
-          'Category Page',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-        ),
-      ),
+      CategoriesPage(),
       Center(
         child: Text(
           'Cart Page',
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
         ),
       ),
-      Center(
-        child: Text(
-          'Profile Page',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-        ),
-      ),
+      SettingsPage(),
     ];
   }
 
@@ -214,32 +224,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Home'),
+      // ),
       body: _buildWidgetOptions().elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.category),
+            icon: Icon(Icons.category_outlined),
             label: 'Category',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.shopping_cart_outlined),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_2_outlined),
             label: 'My Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: AppConfig.linkColor,
-        unselectedItemColor: AppConfig.primary,
+        selectedItemColor: AppConfig.tertiary,
+        unselectedItemColor: AppConfig.secondary,
         onTap: _onItemTapped,
       ),
     );

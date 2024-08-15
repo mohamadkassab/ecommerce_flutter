@@ -36,6 +36,9 @@ class AppRouter {
         return _createPageRoute(const ForgotPasswordPage());
       case '/home_page':
         return _createPageRoute(const HomePage());
+      // case '/categories_page':
+      //   return _createPageRoute(const HomePage());
+
       case '/settings':
         return _createPageRoute(const SettingsPage());
       default:
