@@ -1,3 +1,5 @@
+import 'package:ecommerce_application/app/app_config.dart';
+import 'package:ecommerce_application/app/theme.dart';
 import 'package:flutter/material.dart';
 
 class SearchAppBarNotification extends StatelessWidget
@@ -13,6 +15,7 @@ class SearchAppBarNotification extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final double notificationSize = AppConfig.notificationSize;
     return AppBar(
       backgroundColor: Theme.of(context).colorScheme.surface,
       title: TextField(
@@ -30,9 +33,16 @@ class SearchAppBarNotification extends StatelessWidget
         ),
       ),
       actions: [
-        IconButton(
-          icon: Icon(Icons.notifications_none_outlined),
-          onPressed: onNotificationPressed,
+        Padding(
+          padding: const EdgeInsets.only(
+              right:
+                  scaffoldPadding), // Adjust the value to move it to the left
+          child: IconButton(
+            icon: Icon(Icons.notifications_none),
+            onPressed: onNotificationPressed,
+            iconSize: notificationSize,
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
         ),
       ],
     );

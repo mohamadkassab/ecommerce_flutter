@@ -17,6 +17,7 @@
 
 import 'package:ecommerce_application/views/cart/cart_page.dart';
 import 'package:ecommerce_application/views/home/search_page.dart';
+import 'package:ecommerce_application/views/home/home_page.dart';
 import 'package:ecommerce_application/views/settings/settings_page.dart';
 import 'package:ecommerce_application/views/settings/sub_pages/account_page.dart';
 import 'package:ecommerce_application/views/settings/sub_pages/orders_page.dart';
@@ -37,6 +38,11 @@ class AppRouter {
         return _createPageRoute(const SigninPage());
       case '/forgot_password':
         return _createPageRoute(const ForgotPasswordPage());
+      case '/home':
+        return _createPageRoute(const HomePage());
+      // case '/categories_page':
+      //   return _createPageRoute(const HomePage());
+
       case '/settings':
         return _createPageRoute(const SettingsPage());
       case '/cart':

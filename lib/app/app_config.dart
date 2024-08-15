@@ -9,8 +9,6 @@ class AppConfig {
   static const FontWeight subHeadingFontWeight = FontWeight.w400;
   static const double titleFontSize = 24;
   static const FontWeight titleFontWeight = FontWeight.w700;
-  // static const double subTitleFontSize = 16;
-  // static const FontWeight subTitleFontWeight = FontWeight.w400;
   static const double noteFontSize = 14;
   static const FontWeight noteFontWeight = FontWeight.w400;
   static const String mainLogoPath = "assets/images/logo.png";
@@ -20,4 +18,11 @@ class AppConfig {
   static const Color successColor = Color.fromARGB(255, 51, 151, 238);
   static const double iconSize = 20;
   static const double productCartDetailsHeight = 250;
+  static const Color primary = Color.fromARGB(255, 0, 0, 0);
+  static const Color surface = Color.fromARGB(255, 255, 255, 255);
+  static const Color secondary = Color.fromARGB(255, 161, 161, 161);
+  static const Color error = Color.fromARGB(255, 229, 57, 53);
+  static const Color tertiary = Colors.green;
+  static const Color categoriesBackgroundItem = Color(0xFFEEEEEE);
+  static const double notificationSize = 32;
 }
