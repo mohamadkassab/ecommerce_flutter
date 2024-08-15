@@ -1,11 +1,13 @@
+import 'package:ecommerce_application/app/app_config.dart';
 import 'package:flutter/material.dart';
 
-const Color primary = Color.fromARGB(255, 0, 0, 0);
-const Color surface = Color.fromARGB(255, 255, 255, 255);
-const Color secondary = Color.fromARGB(255, 161, 161, 161);
-const Color linkColor = Color.fromARGB(255, 51, 151, 238);
-const Color error = Color.fromARGB(255, 229, 57, 53);
-const double borderRadius = 8.0;
+const Color primary = AppConfig.primary;
+const Color surface = AppConfig.surface;
+const Color secondary = AppConfig.secondary;
+const Color linkColor = AppConfig.linkColor;
+const Color error = AppConfig.error;
+const Color tertiary = AppConfig.tertiary;
+const double borderRadius = AppConfig.globalRadius;
 const double borderWidth = 1.0;
 const double buttonFontSize = 16;
 const double buttonPaddingHorizontal = 20;
@@ -29,6 +31,10 @@ const ColorScheme KColorScheme = ColorScheme(
   onSurface: primary, // Color used for text and icons on surface
   error: error, // Default error color
   onError: surface, // Color used for text and icons on error color
+  tertiary: tertiary, // Additional accent color
+  onTertiary: primary, // Text and icon color for tertiary
+  // tertiaryContainer: tertiaryContainer, // Background color for tertiary
+  // onTertiaryContainer: onTertiaryContainer, // Text and icon color for tertiaryContainer
 );
 
 final ThemeData appTheme = ThemeData(
@@ -99,7 +105,4 @@ final ThemeData appTheme = ThemeData(
       foregroundColor: linkColor,
     ),
   ),
-  
 );
-
-
