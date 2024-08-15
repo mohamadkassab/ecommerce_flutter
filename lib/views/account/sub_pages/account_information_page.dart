@@ -12,14 +12,14 @@ import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
 import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
 
-class AccountPage extends StatefulWidget {
-  const AccountPage({super.key});
+class AccountInformationPage extends StatefulWidget {
+  const AccountInformationPage({super.key});
 
   @override
-  _AccountPageState createState() => _AccountPageState();
+  _AccountInformationPageState createState() => _AccountInformationPageState();
 }
 
-class _AccountPageState extends State<AccountPage> {
+class _AccountInformationPageState extends State<AccountInformationPage> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
   final FontWeight titleFontWeight = AppConfig.titleFontWeight;

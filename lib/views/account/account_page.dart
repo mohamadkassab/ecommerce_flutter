@@ -8,14 +8,14 @@ import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
 import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+class AccountPage extends StatefulWidget {
+  const AccountPage({super.key});
 
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  _AccountPageState createState() => _AccountPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _AccountPageState extends State<AccountPage> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
   final FontWeight titleFontWeight = AppConfig.titleFontWeight;
@@ -33,7 +33,11 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Account'),
+        title: Text(
+          'Settings',
+          style: TextStyle(fontWeight: AppConfig.headingFontWeight),
+        ),
+        automaticallyImplyLeading: false, // This removes the back button
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -63,16 +67,21 @@ class _SettingsPageState extends State<SettingsPage> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2 -
                           sizedBoxHeight * 2,
-                      child:
-                          SecondaryButton(text: "Orders", onPressed: () => {
-                            Navigator.pushNamed(context, "/orders"),
-                          }),
+                      child: SecondaryButton(
+                          text: "Orders",
+                          onPressed: () => {
+                                Navigator.pushNamed(context, "/orders"),
+                              }),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2 -
                           sizedBoxHeight * 2,
-                      child:
-                          SecondaryButton(text: "Account", onPressed: () => {}),
+                      child: SecondaryButton(
+                          text: "Account",
+                          onPressed: () => {
+                                Navigator.pushNamed(
+                                    context, "/account_information"),
+                              }),
                     ),
 
                     SizedBox(

@@ -2,6 +2,7 @@ import 'package:ecommerce_application/app/app_config.dart';
 import 'package:ecommerce_application/app/theme.dart';
 import 'package:ecommerce_application/components/checkbox/checkbox_text.dart';
 import 'package:ecommerce_application/components/line/horizontal_line.dart';
+import 'package:ecommerce_application/components/shared/price_on_sale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -105,25 +106,9 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
                         FittedBox(
                           child: Column(
                             children: [
-                              Text(
-                                '\$${_price.toStringAsFixed(2)}',
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    fontSize: headingFontSize,
-                                    fontWeight: headingFontWeight,
-                                    decoration: TextDecoration.lineThrough,
-                                    decorationColor: Theme.of(context)
-                                        .colorScheme
-                                        .secondary),
-                              ),
-                              Text(
-                                '\$${_price.toStringAsFixed(2)}',
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontSize: subHeadingFontSize,
-                                    fontWeight: headingFontWeight),
+                              PriceOnSale(
+                                priceBefore: 19.99,
+                                priceAfter: 11.53,
                               ),
                             ],
                           ),

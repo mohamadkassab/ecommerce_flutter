@@ -78,7 +78,7 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
               height: productCartDetailsHeight,
               child: Image.asset(
                 "assets/images/whey.png",
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.contain,
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(globalRadius)),
@@ -95,11 +95,14 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
               alignment: Alignment.topLeft,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Amazon",
                     style: TextStyle(
                         fontSize: headingFontSize, fontWeight: FontWeight.w800),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(
                     height: sizedBoxHeight / 2,
@@ -109,7 +112,7 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
                     style: TextStyle(
                         fontSize: subHeadingFontSize,
                         fontWeight: subHeadingFontWeight),
-                    maxLines: 3,
+                    maxLines: 5,
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(

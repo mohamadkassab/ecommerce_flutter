@@ -16,11 +16,12 @@
 // }
 
 import 'package:ecommerce_application/views/cart/cart_page.dart';
+import 'package:ecommerce_application/views/categories/categories_page.dart';
 import 'package:ecommerce_application/views/home/search_page.dart';
 import 'package:ecommerce_application/views/home/home_page.dart';
-import 'package:ecommerce_application/views/settings/settings_page.dart';
-import 'package:ecommerce_application/views/settings/sub_pages/account_page.dart';
-import 'package:ecommerce_application/views/settings/sub_pages/orders_page.dart';
+import 'package:ecommerce_application/views/account/account_page.dart';
+import 'package:ecommerce_application/views/account/sub_pages/account_information_page.dart';
+import 'package:ecommerce_application/views/account/sub_pages/orders_page.dart';
 import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
 import 'package:flutter/material.dart';
@@ -40,17 +41,16 @@ class AppRouter {
         return _createPageRoute(const ForgotPasswordPage());
       case '/home':
         return _createPageRoute(const HomePage());
-      // case '/categories_page':
-      //   return _createPageRoute(const HomePage());
-
-      case '/settings':
-        return _createPageRoute(const SettingsPage());
+      case '/categories':
+        return _createPageRoute(const CategoriesPage());
+      case '/account':
+        return _createPageRoute(const AccountPage());
       case '/cart':
         return _createPageRoute(const CartPage());
       case '/orders':
         return _createPageRoute(const OrdersPage());
-      case '/account':
-        return _createPageRoute(const AccountPage());
+      case '/account_information':
+        return _createPageRoute(const AccountInformationPage());
       case '/search':
         return _createPageRoute(const SearchPage());
       default:

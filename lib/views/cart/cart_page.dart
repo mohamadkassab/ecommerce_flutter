@@ -14,18 +14,6 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  final double sizedBoxHeight = AppConfig.sizedBoxHeight;
-  final double titleFontSize = AppConfig.titleFontSize;
-  final FontWeight titleFontWeight = AppConfig.titleFontWeight;
-  final double subHeadingFontSize = AppConfig.subHeadingFontSize;
-  final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
-  final double noteFontSize = AppConfig.noteFontSize;
-  final FontWeight noteFontWeight = AppConfig.noteFontWeight;
-  final double headingFontSize = AppConfig.headingFontSize;
-  final FontWeight headingFontWeight = AppConfig.headingFontWeight;
-  final String mainLogoPath = AppConfig.mainLogoPath;
-  final double scaffoldPadding = AppConfig.scaffoldPadding;
-  final double mainLogoHeight = AppConfig.mainLogoHeight;
   bool _isSelectAll = false;
 
   void _selectAll(bool? value) {
@@ -36,30 +24,38 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double sizedBoxHeight = AppConfig.sizedBoxHeight;
+    final double scaffoldPadding = AppConfig.scaffoldPadding;
+    final double subHeadingFontSize = AppConfig.subHeadingFontSize;
+    final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping cart'),
+        title: const Text(
+          'Cart',
+          style: TextStyle(fontWeight: AppConfig.headingFontWeight),
+        ),
+        automaticallyImplyLeading: false,
       ),
       body: Stack(
         children: [
-          // Main content of the page
           SingleChildScrollView(
             child: SafeArea(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: scaffoldPadding,
-                    right: scaffoldPadding,
-                    bottom: sizedBoxHeight * 4),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    LocationButton(
-                      label: 'Beirut',
-                      onPressed: () {
-                        // Handle profile button press
-                      },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  LocationButton(
+                    label: 'Beirut',
+                    onPressed: () {
+                      // Handle profile button press
+                    },
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: scaffoldPadding,
+                      right: scaffoldPadding,
                     ),
-                    Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CheckboxText(
@@ -69,26 +65,31 @@ class _CartPageState extends State<CartPage> {
                           fontSize: subHeadingFontSize,
                           fontWeight: subHeadingFontWeight,
                           text: "Select all",
-                        )
+                        ),
                       ],
                     ),
-                    HorizontalLine(
-                      thickness: 6,
+                  ),
+                  const HorizontalLine(thickness: 6),
+                  // Use ListView.builder for dynamic list
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: scaffoldPadding,
+                      right: scaffoldPadding,
+                      bottom: sizedBoxHeight * 4,
                     ),
-                    Column(
-                      children: [
-                        ProductCartDetails(),
-                        ProductCartDetails(),
-                        ProductCartDetails(),
-                        ProductCartDetails()
-                      ],
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: 4, // Adjust this count as needed
+                      itemBuilder: (context, index) {
+                        return ProductCartDetails();
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
-          // Sticky button at the bottom
           Positioned(
             bottom: 0,
             left: 0,
@@ -96,7 +97,7 @@ class _CartPageState extends State<CartPage> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: PrimaryButton(
                     onPressed: () {
                       // Handle button press
@@ -104,9 +105,7 @@ class _CartPageState extends State<CartPage> {
                     text: 'Checkout',
                   ),
                 ),
-                SizedBox(
-                  height: sizedBoxHeight / 8,
-                )
+                SizedBox(height: AppConfig.sizedBoxHeight / 8),
               ],
             ),
           ),

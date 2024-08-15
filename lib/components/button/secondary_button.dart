@@ -30,9 +30,7 @@ class SecondaryButton extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
             width: buttonBorderWidth), // Border color
         elevation: elevation,
-        padding: EdgeInsets.symmetric(
-            vertical: 8.0,
-            horizontal: 16.0), // Adjust the vertical padding here
+        // Adjust the vertical padding here
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

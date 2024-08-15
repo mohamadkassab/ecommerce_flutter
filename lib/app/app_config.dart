@@ -24,5 +24,5 @@ class AppConfig {
   static const Color error = Color.fromARGB(255, 229, 57, 53);
   static const Color tertiary = Colors.green;
   static const Color categoriesBackgroundItem = Color(0xFFEEEEEE);
-  static const double notificationSize = 32;
+  static const double notificationSize = 30;
 }
