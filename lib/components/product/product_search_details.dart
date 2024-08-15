@@ -5,14 +5,14 @@ import 'package:ecommerce_application/components/line/horizontal_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class ProductCartDetails extends StatefulWidget {
-  ProductCartDetails({super.key});
+class ProductSearchDetails extends StatefulWidget {
+  ProductSearchDetails({super.key});
 
   @override
-  _ProductCartDetailsState createState() => _ProductCartDetailsState();
+  _ProductSearchDetailsState createState() => _ProductSearchDetailsState();
 }
 
-class _ProductCartDetailsState extends State<ProductCartDetails> {
+class _ProductSearchDetailsState extends State<ProductSearchDetails> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double subHeadingFontSize = AppConfig.subHeadingFontSize;
   final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
@@ -20,14 +20,8 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
   final FontWeight headingFontWeight = AppConfig.headingFontWeight;
   final double globalRadius = AppConfig.globalRadius;
   final double productCartDetailsHeight = AppConfig.productCartDetailsHeight;
-  int _quantity = 1;
   final double _price = 19.99;
-  final List<String> dropdownItems = [
-    '1',
-    '2',
-    '3',
-    '4',
-  ];
+
   String? selectedValue;
 
   bool _isSelectAll = false;
@@ -37,40 +31,9 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
     });
   }
 
-  void _increaseQuantity() {
-    setState(() {
-      _quantity++;
-    });
-  }
-
-  void _decreaseQuantity() {
-    if (_quantity > 1) {
-      setState(() {
-        _quantity--;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CheckboxText(
-            isSelectAll: _isSelectAll,
-            onSelectAllChanged: _selectAll,
-            sizedBoxHeight: sizedBoxHeight / 2,
-            fontSize: subHeadingFontSize,
-            fontWeight: subHeadingFontWeight,
-          ),
-          IconButton(
-            onPressed: () => {},
-            icon: Icon(Icons.delete_outline),
-            color: Theme.of(context).colorScheme.primary,
-          )
-        ],
-      ),
       Row(
         children: [
           Expanded(
@@ -96,13 +59,18 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Amazon",
-                    style: TextStyle(
-                        fontSize: headingFontSize, fontWeight: FontWeight.w800),
-                  ),
-                  SizedBox(
-                    height: sizedBoxHeight / 2,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Amazon",
+                        style: TextStyle(
+                            fontSize: headingFontSize,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      IconButton(
+                          onPressed: () => {}, icon: Icon(Icons.share_outlined))
+                    ],
                   ),
                   Text(
                     "high absorption Magnesium Glycinate 350, 160 veg160 caps bla bla bla",
@@ -121,7 +89,7 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
                     direction: Axis.horizontal,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                    itemSize: 24.0,
+                    itemSize: 20.0,
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -129,52 +97,51 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
                     onRatingUpdate: (rating) {
                       print(rating);
                     },
+                  ),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FittedBox(
+                          child: Column(
+                            children: [
+                              Text(
+                                '\$${_price.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
+                                    fontSize: headingFontSize,
+                                    fontWeight: headingFontWeight,
+                                    decoration: TextDecoration.lineThrough,
+                                    decorationColor: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                              ),
+                              Text(
+                                '\$${_price.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontSize: subHeadingFontSize,
+                                    fontWeight: headingFontWeight),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.shopping_cart_checkout_outlined),
+                          color: Theme.of(context).colorScheme.tertiary,
+                          onPressed: () {
+                            // Add your onPressed code here!
+                            print("Cart icon clicked!");
+                          },
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            child: Row(
-              children: [
-                Text(
-                  'Quantity:',
-                  style: TextStyle(
-                      fontSize: subHeadingFontSize,
-                      fontWeight: headingFontWeight),
-                ),
-                SizedBox(
-                  width: scaffoldPadding,
-                ),
-                SizedBox(
-                  width: 40,
-                  child: DropdownButton<String>(
-                    value: selectedValue,
-                    items: dropdownItems.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (newValue) {
-                      setState(() {
-                        selectedValue = newValue;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Text(
-            '\$${_price.toStringAsFixed(2)}',
-            style: TextStyle(
-                fontSize: subHeadingFontSize, fontWeight: headingFontWeight),
           ),
         ],
       ),

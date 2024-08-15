@@ -16,7 +16,9 @@
 // }
 
 import 'package:ecommerce_application/views/cart/cart_page.dart';
+import 'package:ecommerce_application/views/home/search_page.dart';
 import 'package:ecommerce_application/views/settings/settings_page.dart';
+import 'package:ecommerce_application/views/settings/sub_pages/account_page.dart';
 import 'package:ecommerce_application/views/settings/sub_pages/orders_page.dart';
 import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
@@ -41,6 +43,10 @@ class AppRouter {
         return _createPageRoute(const CartPage());
       case '/orders':
         return _createPageRoute(const OrdersPage());
+      case '/account':
+        return _createPageRoute(const AccountPage());
+      case '/search':
+        return _createPageRoute(const SearchPage());
       default:
         return _createPageRoute(const AuthPage());
     }
@@ -53,13 +59,13 @@ class AppRouter {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.easeInOut;
-        
+
         var tween = Tween(begin: begin, end: end);
-        var offsetAnimation = animation.drive(tween.chain(CurveTween(curve: curve)));
+        var offsetAnimation =
+            animation.drive(tween.chain(CurveTween(curve: curve)));
 
         return SlideTransition(position: offsetAnimation, child: child);
       },
     );
   }
 }
-

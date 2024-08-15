@@ -1,5 +1,5 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/themes.dart';
+import 'package:ecommerce_application/app/theme.dart';
 import 'package:ecommerce_application/components/button/primary_button.dart';
 import 'package:ecommerce_application/components/button/secondary_button.dart';
 import 'package:ecommerce_application/components/line/horizontal_line.dart';

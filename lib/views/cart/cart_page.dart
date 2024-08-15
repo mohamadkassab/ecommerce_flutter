@@ -1,14 +1,9 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/themes.dart';
 import 'package:ecommerce_application/components/button/location_button.dart';
 import 'package:ecommerce_application/components/button/primary_button.dart';
-import 'package:ecommerce_application/components/button/secondary_button.dart';
 import 'package:ecommerce_application/components/checkbox/checkbox_text.dart';
 import 'package:ecommerce_application/components/line/horizontal_line.dart';
-import 'package:ecommerce_application/components/button/setting_button.dart';
 import 'package:ecommerce_application/components/product/product_cart_details.dart';
-import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
-import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {

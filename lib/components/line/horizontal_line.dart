@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 class HorizontalLine extends StatelessWidget {
   final double thickness;
   final double opacity;
+  final double padding;
 
   const HorizontalLine({
     super.key,
     this.thickness = 8,
     this.opacity = 0.1,
+    this.padding = 0,
   });
 
   @override
   Widget build(BuildContext context) {
-    final double padding = AppConfig.scaffoldPadding;
     return Row(
       children: [
         Expanded(

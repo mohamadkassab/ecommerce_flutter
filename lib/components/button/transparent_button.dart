@@ -16,9 +16,9 @@ class TransparentButton extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: Colors.transparent,
         side: BorderSide(
-            color: Theme.of(context).colorScheme.primary), // Border color
+            color: Theme.of(context).colorScheme.secondary), // Border color
         foregroundColor: Theme.of(context).colorScheme.primary, // Text color
-        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+        padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
       ),
       child: Text(
         text,

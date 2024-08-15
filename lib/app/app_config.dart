@@ -17,6 +17,7 @@ class AppConfig {
   static const double mainLogoHeight = 100;
   static const double scaffoldPadding = 16;
   static const Color linkColor = Color.fromARGB(255, 51, 151, 238);
+  static const Color successColor = Color.fromARGB(255, 51, 151, 238);
   static const double iconSize = 20;
-  static const double productCartDetailsHeight = 200;
+  static const double productCartDetailsHeight = 250;
 }

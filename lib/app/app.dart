@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'router.dart';
-import 'themes.dart';
+import 'theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Amazon',
       theme: appTheme,
-      initialRoute: '/settings',
+      initialRoute: '/account',
       onGenerateRoute: AppRouter.generateRoute,
     );
   }
