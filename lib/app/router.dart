@@ -15,7 +15,9 @@
 //   }
 // }
 
+import 'package:ecommerce_application/views/categories/categories_page.dart';
 import 'package:ecommerce_application/views/home/home_page.dart';
+import 'package:ecommerce_application/views/products/product_item_page.dart';
 import 'package:ecommerce_application/views/settings/settings_page.dart';
 import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
@@ -36,11 +38,12 @@ class AppRouter {
         return _createPageRoute(const ForgotPasswordPage());
       case '/home_page':
         return _createPageRoute(const HomePage());
-      // case '/categories_page':
-      //   return _createPageRoute(const HomePage());
-
+      case '/categories_page':
+        return _createPageRoute(CategoriesPage());
       case '/settings':
         return _createPageRoute(const SettingsPage());
+      case '/product_item_page':
+        return _createPageRoute(ProductDetailsPage());
       default:
         return _createPageRoute(const AuthPage());
     }

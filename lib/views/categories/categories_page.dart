@@ -2,6 +2,7 @@ import 'package:ecommerce_application/app/app_config.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesPage extends StatelessWidget {
+  // const CategoriesPage({super.key});
   // Dummy data for categories
   final List<Map<String, dynamic>> categories = [
     {'name': 'Electronics', 'icon': Icons.electrical_services},
