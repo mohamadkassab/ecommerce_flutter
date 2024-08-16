@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_application/components/products/products_carousel.dart';
 
 class ProductDetailsPage extends StatefulWidget {
+  const ProductDetailsPage({super.key});
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
 }

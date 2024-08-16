@@ -43,7 +43,7 @@ class AppRouter {
       case '/settings':
         return _createPageRoute(const SettingsPage());
       case '/product_item_page':
-        return _createPageRoute(ProductDetailsPage());
+        return _createPageRoute(const ProductDetailsPage());
       default:
         return _createPageRoute(const AuthPage());
     }
