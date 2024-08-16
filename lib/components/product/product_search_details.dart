@@ -42,7 +42,7 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
               height: productCartDetailsHeight,
               child: Image.asset(
                 "assets/images/whey.png",
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.contain,
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(globalRadius)),

@@ -32,7 +32,7 @@ class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return _createPageRoute(const AuthPage());
+        return _createPageRoute(const HomePage());
       case '/signup':
         return _createPageRoute(const SignupPage());
       case '/signin':

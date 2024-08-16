@@ -37,7 +37,10 @@ class _OrdersPageState extends State<OrdersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBarNotification(onNotificationPressed: () => {}),
+      appBar: SearchAppBarNotification(
+        onNotificationPressed: () => {},
+        onSearch: () => {},
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(scaffoldPadding),

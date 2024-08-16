@@ -80,7 +80,11 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBarNotification(onNotificationPressed: () => {}),
+      appBar: SearchAppBarNotification(
+        onNotificationPressed: () => {},
+        onSearch: () => {Navigator.pushNamed(context, "/search")},
+        implyLeading: false,
+      ),
       body:
           // Main content of the page
           SingleChildScrollView(

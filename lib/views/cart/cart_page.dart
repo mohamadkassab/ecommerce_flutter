@@ -35,7 +35,7 @@ class _CartPageState extends State<CartPage> {
           'Cart',
           style: TextStyle(fontWeight: AppConfig.headingFontWeight),
         ),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false, // This removes the back button
       ),
       body: Stack(
         children: [
