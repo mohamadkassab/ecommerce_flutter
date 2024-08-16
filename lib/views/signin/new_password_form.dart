@@ -13,8 +13,8 @@ class _NewPasswordFormState extends State<NewPasswordForm> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
   final FontWeight titleFontWeight = AppConfig.titleFontWeight;
-  final double subTitleFontSize = AppConfig.subTitleFontSize;
-  final FontWeight subTitleFontWeight = AppConfig.subTitleFontWeight;
+  final double subHeadingFontSize = AppConfig.subHeadingFontSize;
+  final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
   final double noteFontSize = AppConfig.noteFontSize;
   final FontWeight noteFontWeight = AppConfig.noteFontWeight;
   final double headingFontSize = AppConfig.headingFontSize;
@@ -155,8 +155,8 @@ class _NewPasswordFormState extends State<NewPasswordForm> {
                   "Upon resetting your password, any saved payment information requires validation at checkout for security purposes.",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
-                    fontSize: subTitleFontSize,
-                    fontWeight: subTitleFontWeight,
+                    fontSize: subHeadingFontSize,
+                    fontWeight: subHeadingFontWeight,
                   ),
                 ),
               ],

@@ -14,8 +14,8 @@ class _OTPFormState extends State<OTPForm> {
   final double sizedBoxHeight = AppConfig.sizedBoxHeight;
   final double titleFontSize = AppConfig.titleFontSize;
   final FontWeight titleFontWeight = AppConfig.titleFontWeight;
-  final double subTitleFontSize = AppConfig.subTitleFontSize;
-  final FontWeight subTitleFontWeight = AppConfig.subTitleFontWeight;
+  final double subHeadingFontSize = AppConfig.subHeadingFontSize;
+  final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
   final double noteFontSize = AppConfig.noteFontSize;
   final FontWeight noteFontWeight = AppConfig.noteFontWeight;
   final double headingFontSize = AppConfig.headingFontSize;
@@ -73,8 +73,8 @@ class _OTPFormState extends State<OTPForm> {
                 "Code sent",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
-                  fontSize: subTitleFontSize,
-                  fontWeight: subTitleFontWeight,
+                  fontSize: subHeadingFontSize,
+                  fontWeight: subHeadingFontWeight,
                 ),
               ),
               SizedBox(width: sizedBoxHeight),
@@ -104,8 +104,8 @@ class _OTPFormState extends State<OTPForm> {
                 "Enter the temporary password reset code we sent to your email address: \n",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
-                  fontSize: subTitleFontSize,
-                  fontWeight: subTitleFontWeight,
+                  fontSize: subHeadingFontSize,
+                  fontWeight: subHeadingFontWeight,
                 ),
               ),
               Text(

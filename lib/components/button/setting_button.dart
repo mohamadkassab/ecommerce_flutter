@@ -14,6 +14,7 @@ class SettingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final double subHeadingFontSize = AppConfig.subHeadingFontSize;
     final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
+    final double iconSize = AppConfig.iconSize;
 
     return TextButton(
       onPressed: onPressed,
@@ -26,7 +27,7 @@ class SettingButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label),
-          Icon(Icons.arrow_forward_ios, size: 16),
+          Icon(Icons.arrow_forward_ios, size: iconSize),
         ],
       ),
     );

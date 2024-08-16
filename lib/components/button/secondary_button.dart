@@ -21,7 +21,6 @@ class SecondaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor:
@@ -31,6 +30,7 @@ class SecondaryButton extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
             width: buttonBorderWidth), // Border color
         elevation: elevation,
+        // Adjust the vertical padding here
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
