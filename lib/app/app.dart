@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Amazon',
       theme: appTheme,
-      initialRoute: '/settings',
+      initialRoute: '/home',
       onGenerateRoute: AppRouter.generateRoute,
     );
   }
