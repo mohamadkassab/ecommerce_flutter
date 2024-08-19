@@ -1,17 +1,8 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/theme.dart';
-import 'package:ecommerce_application/components/app_bar/search_app_bar_notification.dart';
-import 'package:ecommerce_application/components/button/location_button.dart';
-import 'package:ecommerce_application/components/button/primary_button.dart';
+import 'package:ecommerce_application/components/app_bar/search_app_bar_icon.dart';
 import 'package:ecommerce_application/components/button/secondary_button.dart';
 import 'package:ecommerce_application/components/button/transparent_button.dart';
-import 'package:ecommerce_application/components/checkbox/checkbox_text.dart';
-import 'package:ecommerce_application/components/line/horizontal_line.dart';
-import 'package:ecommerce_application/components/button/setting_button.dart';
-import 'package:ecommerce_application/components/product/product_cart_details.dart';
 import 'package:ecommerce_application/components/product/product_search_details.dart';
-import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
-import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -46,9 +37,10 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBarNotification(
-        onNotificationPressed: () => {},
+      appBar: SearchAppBarIcon(
+        onIconPressed: () => {},
         onSearch: () => {},
+        icon: const Icon(Icons.notifications),
       ),
       body:
           // Main content of the page
@@ -110,7 +102,7 @@ class _SearchPageState extends State<SearchPage> {
               SizedBox(
                 height: scaffoldPadding,
               ),
-              Column(
+              const Column(
                 children: [
                   ProductSearchDetails(),
                   ProductSearchDetails(),

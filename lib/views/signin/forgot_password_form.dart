@@ -55,11 +55,11 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  minimumSize: Size(0, 0),
+                  minimumSize: const Size(0, 0),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerLeft,
                 ),
-                child: Text('Change'),
+                child: const Text('Change'),
               ),
             ],
           ),
@@ -85,7 +85,6 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         SizedBox(height: sizedBoxHeight),
         PrimaryButton(
             text: 'Reset your password',
-            width: double.infinity,
             onPressed: () async {
               widget.onOTP(true);
             }),

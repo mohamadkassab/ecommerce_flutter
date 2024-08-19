@@ -1,14 +1,7 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/theme.dart';
-import 'package:ecommerce_application/components/app_bar/search_app_bar.dart';
-import 'package:ecommerce_application/components/app_bar/search_app_bar_notification.dart';
+import 'package:ecommerce_application/components/app_bar/search_app_bar_icon.dart';
 import 'package:ecommerce_application/components/button/primary_button.dart';
-import 'package:ecommerce_application/components/button/secondary_button.dart';
 import 'package:ecommerce_application/components/button/transparent_button.dart';
-import 'package:ecommerce_application/components/line/horizontal_line.dart';
-import 'package:ecommerce_application/components/button/setting_button.dart';
-import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
-import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
 
 class OrdersPage extends StatefulWidget {
@@ -32,14 +25,15 @@ class _OrdersPageState extends State<OrdersPage> {
   final double scaffoldPadding = AppConfig.scaffoldPadding;
   final double mainLogoHeight = AppConfig.mainLogoHeight;
   final TextEditingController _searchController = TextEditingController();
-  String _searchText = '';
+  final String _searchText = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBarNotification(
-        onNotificationPressed: () => {},
+      appBar: SearchAppBarIcon(
+        onIconPressed: () => {},
         onSearch: () => {},
+        icon: const Icon(Icons.notifications),
       ),
       body: SafeArea(
         child: Padding(

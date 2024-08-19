@@ -5,16 +5,16 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Function() onNotificationPressed;
 
   const SearchAppBar({
-    Key? key,
+    super.key,
     this.bottomPadding = 10.0,
     required this.onNotificationPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      title: TextField(
+      title: const TextField(
         decoration: InputDecoration(
           hintText: 'Search',
           border: OutlineInputBorder(),

@@ -163,8 +163,7 @@ class _NewPasswordFormState extends State<NewPasswordForm> {
             ),
           ),
           SizedBox(height: sizedBoxHeight),
-          PrimaryButton(
-              text: 'Submit', width: double.infinity, onPressed: () async {}),
+          PrimaryButton(text: 'Submit', onPressed: () async {}),
         ],
       ),
     );

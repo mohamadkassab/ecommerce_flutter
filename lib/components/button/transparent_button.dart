@@ -5,11 +5,11 @@ class TransparentButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  TransparentButton({required this.text, required this.onPressed});
+  const TransparentButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    final double subHeadingFontSize = AppConfig.subHeadingFontSize;
+    const double subHeadingFontSize = AppConfig.subHeadingFontSize;
 
     return TextButton(
       onPressed: onPressed,
@@ -18,12 +18,12 @@ class TransparentButton extends StatelessWidget {
         side: BorderSide(
             color: Theme.of(context).colorScheme.secondary), // Border color
         foregroundColor: Theme.of(context).colorScheme.primary, // Text color
-        padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
       ),
       child: Text(
         text,
         overflow: TextOverflow.ellipsis, // Ensures text stays on one line
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: subHeadingFontSize,
         ),
       ),

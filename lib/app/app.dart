@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Amazon',
       theme: appTheme,
-      initialRoute: '/home',
+      initialRoute: '/',
       onGenerateRoute: AppRouter.generateRoute,
     );
   }

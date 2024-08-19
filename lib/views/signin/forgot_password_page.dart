@@ -3,7 +3,6 @@ import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
 import 'package:ecommerce_application/views/signin/new_password_form.dart';
 import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
-import 'signin_form.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -43,7 +42,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _isNewPasswordVisible
-                    ? NewPasswordForm()
+                    ? const NewPasswordForm()
                     : _isOTPVisisble
                         ? OTPForm(onNewPassword: _newPasswordVisibility)
                         : ForgotPasswordForm(onOTP: _OTPVisibility),

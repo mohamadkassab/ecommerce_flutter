@@ -1,18 +1,6 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/theme.dart';
-import 'package:ecommerce_application/components/app_bar/search_app_bar_notification.dart';
-import 'package:ecommerce_application/components/button/location_button.dart';
-import 'package:ecommerce_application/components/button/primary_button.dart';
-import 'package:ecommerce_application/components/button/secondary_button.dart';
-import 'package:ecommerce_application/components/button/transparent_button.dart';
-import 'package:ecommerce_application/components/checkbox/checkbox_text.dart';
-import 'package:ecommerce_application/components/line/horizontal_line.dart';
-import 'package:ecommerce_application/components/button/setting_button.dart';
-import 'package:ecommerce_application/components/product/product_cart_details.dart';
-import 'package:ecommerce_application/components/product/product_search_details.dart';
-import 'package:ecommerce_application/components/product/products_carousel.dart';
-import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
-import 'package:ecommerce_application/views/signin/otp_form.dart';
+import 'package:ecommerce_application/components/app_bar/search_app_bar_icon.dart';
+import 'package:ecommerce_application/components/product/products_list.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -80,10 +68,11 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBarNotification(
-        onNotificationPressed: () => {},
+      appBar: SearchAppBarIcon(
+        onIconPressed: () => {},
         onSearch: () => {Navigator.pushNamed(context, "/search")},
         implyLeading: false,
+        icon: const Icon(Icons.notifications),
       ),
       body:
           // Main content of the page
@@ -94,7 +83,7 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 200, // Adjust the height as needed
                   child: ClipRRect(
@@ -106,11 +95,9 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: AppConfig.sizedBoxHeight * 2),
-                ProductsCarousel(
-                    sectionText: "New Arrival", products: _products),
-                ProductsCarousel(
-                    sectionText: "Best Seller", products: _products2),
+                const SizedBox(height: AppConfig.sizedBoxHeight * 2),
+                ProductsList(sectionText: "New Arrival", products: _products),
+                ProductsList(sectionText: "Best Seller", products: _products2),
               ],
             ),
           ),

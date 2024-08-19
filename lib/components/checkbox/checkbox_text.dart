@@ -9,14 +9,14 @@ class CheckboxText extends StatelessWidget {
   final String text;
 
   const CheckboxText({
-    Key? key,
+    super.key,
     required this.isSelectAll,
     required this.onSelectAllChanged,
     this.text = "Select",
     this.sizedBoxHeight = 8.0,
     this.fontSize = 14,
     this.fontWeight = FontWeight.normal,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,4 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/views/signin/forgot_password_form.dart';
-import 'package:ecommerce_application/views/signin/otp_form.dart';
 import 'package:flutter/material.dart';
 import 'signin_form.dart';
 
@@ -12,14 +10,7 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
-  final String mainLogoPath = AppConfig.mainLogoPath;
   final double scaffoldPadding = AppConfig.scaffoldPadding;
-  final double mainLogoHeight = AppConfig.mainLogoHeight;
-
-
-
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +25,10 @@ class _SigninPageState extends State<SigninPage> {
               children: [
                 Center(
                     child: Image.asset(
-                  mainLogoPath,
-                  height: mainLogoHeight,
+                  AppConfig.mainLogoPath,
+                  height: AppConfig.mainLogoHeight,
                 )),
-         SigninForm(),
+                const SigninForm(),
               ],
             ),
           ),

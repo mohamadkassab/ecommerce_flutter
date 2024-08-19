@@ -5,29 +5,29 @@ class SettingButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  SettingButton({
+  const SettingButton({super.key, 
     required this.label,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    final double subHeadingFontSize = AppConfig.subHeadingFontSize;
-    final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
-    final double iconSize = AppConfig.iconSize;
+    const double subHeadingFontSize = AppConfig.subHeadingFontSize;
+    const FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
+    const double iconSize = AppConfig.iconSize;
 
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
         foregroundColor: Theme.of(context).colorScheme.primary,
-        textStyle: TextStyle(
+        textStyle: const TextStyle(
             fontSize: subHeadingFontSize, fontWeight: subHeadingFontWeight),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label),
-          Icon(Icons.arrow_forward_ios, size: iconSize),
+          const Icon(Icons.arrow_forward_ios, size: iconSize),
         ],
       ),
     );

@@ -17,7 +17,7 @@ class CategoriesPage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Categories',
           style: TextStyle(fontWeight: AppConfig.headingFontWeight),
         ),
@@ -25,12 +25,12 @@ class CategoriesPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(scaffoldPadding),
+          padding: const EdgeInsets.all(scaffoldPadding),
           child: Column(
             children: [
               Expanded(
                 child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: scaffoldPadding,
                     mainAxisSpacing: scaffoldPadding,
@@ -39,7 +39,7 @@ class CategoriesPage extends StatelessWidget {
                   itemCount: categories.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 16.0, vertical: 12.0),
                       decoration: BoxDecoration(
                         color: AppConfig.categoriesBackgroundItem,
@@ -52,7 +52,7 @@ class CategoriesPage extends StatelessWidget {
                           Text(
                             categories[index]['name'],
                             style:
-                                TextStyle(fontSize: AppConfig.headingFontSize),
+                                const TextStyle(fontSize: AppConfig.headingFontSize),
                           ),
                           Icon(
                             categories[index]['icon'],

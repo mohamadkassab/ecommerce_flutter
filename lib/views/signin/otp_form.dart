@@ -1,5 +1,4 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/components/button/primary_button.dart';
 import 'package:flutter/material.dart';
 
 class OTPForm extends StatefulWidget {
@@ -28,11 +27,11 @@ class _OTPFormState extends State<OTPForm> {
   @override
   void initState() {
     super.initState();
-    _otpControllers.forEach((controller) {
+    for (var controller in _otpControllers) {
       controller.addListener(() {
         _onOTPChanged(controller);
       });
-    });
+    }
   }
 
   void _onOTPChanged(TextEditingController controller) {
@@ -46,8 +45,12 @@ class _OTPFormState extends State<OTPForm> {
 
   @override
   void dispose() {
-    _otpControllers.forEach((controller) => controller.dispose());
-    _focusNodes.forEach((node) => node.dispose());
+    for (var controller in _otpControllers) {
+      controller.dispose();
+    }
+    for (var node in _focusNodes) {
+      node.dispose();
+    }
     super.dispose();
   }
 
@@ -84,11 +87,11 @@ class _OTPFormState extends State<OTPForm> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  minimumSize: Size(0, 0),
+                  minimumSize: const Size(0, 0),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerLeft,
                 ),
-                child: Text('Resend'),
+                child: const Text('Resend'),
               ),
             ],
           ),
@@ -126,7 +129,7 @@ class _OTPFormState extends State<OTPForm> {
             otpNumber,
             (index) {
               return Container(
-                margin: EdgeInsets.symmetric(horizontal: 8.0),
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: SizedBox(
                   width: 40,
                   child: TextField(
@@ -135,7 +138,7 @@ class _OTPFormState extends State<OTPForm> {
                     keyboardType: TextInputType.number,
                     textAlign: TextAlign.center,
                     maxLength: 1,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       counterText: '',
                       border: OutlineInputBorder(),
                     ),

@@ -22,11 +22,11 @@ class TextIconbutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double subHeadingFontSize = AppConfig.subHeadingFontSize;
-    final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
-    final double sizedBoxHeight = AppConfig.sizedBoxHeight;
+    const double subHeadingFontSize = AppConfig.subHeadingFontSize;
+    const FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
+    const double sizedBoxHeight = AppConfig.sizedBoxHeight;
     return Container(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
           Row(
@@ -36,13 +36,13 @@ class TextIconbutton extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary, // Icon color
                 size: 34, // Icon size
               ),
-              SizedBox(
+              const SizedBox(
                 width: sizedBoxHeight,
               ),
               Expanded(
                 child: Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: subHeadingFontSize,
                       fontWeight: subHeadingFontWeight),
                 ),
@@ -55,7 +55,7 @@ class TextIconbutton extends StatelessWidget {
               ),
             ],
           ),
-          HorizontalLine(
+          const HorizontalLine(
             padding: 0,
           ),
         ],

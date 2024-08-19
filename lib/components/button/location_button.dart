@@ -4,28 +4,29 @@ import 'package:flutter/material.dart';
 class LocationButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
+  final double iconSize;
 
-  LocationButton({
+  const LocationButton({super.key, 
     required this.label,
     required this.onPressed,
+    this.iconSize = AppConfig.iconSize,
   });
 
   @override
   Widget build(BuildContext context) {
-    final double subHeadingFontSize = AppConfig.subHeadingFontSize;
-    final FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
-    final double sizedBoxHeight = AppConfig.sizedBoxHeight;
-    final double iconSize = AppConfig.iconSize;
-    final double headingFontSize = AppConfig.headingFontSize;
-    final FontWeight headingFontWeight = AppConfig.headingFontWeight;
+    const double subHeadingFontSize = AppConfig.subHeadingFontSize;
+    const FontWeight subHeadingFontWeight = AppConfig.subHeadingFontWeight;
+    const double sizedBoxHeight = AppConfig.sizedBoxHeight;
+    const double headingFontSize = AppConfig.headingFontSize;
+    const FontWeight headingFontWeight = AppConfig.headingFontWeight;
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
           foregroundColor: Theme.of(context).colorScheme.primary,
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
               fontSize: subHeadingFontSize, fontWeight: subHeadingFontWeight),
         ),
         child: Row(
@@ -33,8 +34,12 @@ class LocationButton extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.location_on, size: iconSize),
-                SizedBox(
+                Icon(
+                  Icons.location_on,
+                  size: iconSize,
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
+                const SizedBox(
                   width: sizedBoxHeight,
                 ),
                 RichText(

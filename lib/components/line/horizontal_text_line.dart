@@ -13,12 +13,12 @@ class HorizontaTextlLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double padding = AppConfig.scaffoldPadding;
+    const double padding = AppConfig.scaffoldPadding;
     return Row(
       children: [
         Expanded(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: padding),
+            margin: const EdgeInsets.symmetric(horizontal: padding),
             child: Divider(
                 thickness: thickness,
                 color: Theme.of(context).colorScheme.secondary),
@@ -32,7 +32,7 @@ class HorizontaTextlLine extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: padding),
+            margin: const EdgeInsets.symmetric(horizontal: padding),
             child: Divider(
                 thickness: thickness,
                 color: Theme.of(context).colorScheme.secondary),

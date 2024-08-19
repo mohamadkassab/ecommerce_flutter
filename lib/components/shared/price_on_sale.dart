@@ -8,7 +8,7 @@ class PriceOnSale extends StatelessWidget {
   final double priceAfter;
   final PriceLayout layout;
 
-  PriceOnSale({
+  const PriceOnSale({super.key, 
     required this.priceBefore,
     required this.priceAfter,
     this.layout = PriceLayout.column,
@@ -22,7 +22,7 @@ class PriceOnSale extends StatelessWidget {
 
     return layout == PriceLayout.row
         ? Padding(
-            padding: EdgeInsets.only(left: AppConfig.scaffoldPadding / 2),
+            padding: const EdgeInsets.only(left: AppConfig.scaffoldPadding / 2),
             child: Row(
               children: [
                 Text(
@@ -33,7 +33,7 @@ class PriceOnSale extends StatelessWidget {
                     fontWeight: AppConfig.headingFontWeight,
                   ),
                 ),
-                SizedBox(width: 8), // Space between the prices
+                const SizedBox(width: 8), // Space between the prices
 
                 Text(
                   '\$${priceBefore.toStringAsFixed(2)}',

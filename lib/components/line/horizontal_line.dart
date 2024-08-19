@@ -1,4 +1,3 @@
-import 'package:ecommerce_application/app/app_config.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalLine extends StatelessWidget {

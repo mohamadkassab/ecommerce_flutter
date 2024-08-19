@@ -45,10 +45,10 @@ class _SignupFormState extends State<SignupForm> {
     });
   }
 
-  void _handleCheckboxChange(bool? value, String _variable) {
+  void _handleCheckboxChange(bool? value, String variable) {
     try {
       setState(() {
-        switch (_variable) {
+        switch (variable) {
           case '_isPolicyAccepted':
             _isPolicyAccepted = value ?? false;
             break;
@@ -98,11 +98,11 @@ class _SignupFormState extends State<SignupForm> {
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
-                    minimumSize: Size(0, 0),
+                    minimumSize: const Size(0, 0),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     alignment: Alignment.centerLeft,
                   ),
-                  child: Text('Change'),
+                  child: const Text('Change'),
                 ),
               ],
             ),
@@ -151,7 +151,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           SizedBox(height: sizedBoxHeight),
           ListTile(
-            contentPadding: EdgeInsets.all(0),
+            contentPadding: const EdgeInsets.all(0),
             leading: Checkbox(
               value: _isPolicyAccepted,
               onChanged: (newValue) {
@@ -174,11 +174,11 @@ class _SignupFormState extends State<SignupForm> {
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
-                    minimumSize: Size(0, 0),
+                    minimumSize: const Size(0, 0),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     alignment: Alignment.centerLeft,
                   ),
-                  child: Text('Terms and Conditions '),
+                  child: const Text('Terms and Conditions '),
                 ),
                 Text(
                   "and ",
@@ -194,17 +194,17 @@ class _SignupFormState extends State<SignupForm> {
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
-                    minimumSize: Size(0, 0),
+                    minimumSize: const Size(0, 0),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     alignment: Alignment.centerLeft,
                   ),
-                  child: Text('Privacy Policy.'),
+                  child: const Text('Privacy Policy.'),
                 ),
               ],
             ),
           ),
           ListTile(
-            contentPadding: EdgeInsets.all(0),
+            contentPadding: const EdgeInsets.all(0),
             leading: Checkbox(
               value: _isReceivingMailsAccepted,
               onChanged: (newValue) {
@@ -225,10 +225,7 @@ class _SignupFormState extends State<SignupForm> {
             ),
           ),
           SizedBox(height: sizedBoxHeight),
-          PrimaryButton(
-              text: 'Create account',
-              width: double.infinity,
-              onPressed: () async {}),
+          PrimaryButton(text: 'Create account', onPressed: () async {}),
         ],
       ),
     );

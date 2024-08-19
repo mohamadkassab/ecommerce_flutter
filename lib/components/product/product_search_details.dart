@@ -1,13 +1,11 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/theme.dart';
-import 'package:ecommerce_application/components/checkbox/checkbox_text.dart';
 import 'package:ecommerce_application/components/line/horizontal_line.dart';
 import 'package:ecommerce_application/components/shared/price_on_sale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductSearchDetails extends StatefulWidget {
-  ProductSearchDetails({super.key});
+  const ProductSearchDetails({super.key});
 
   @override
   _ProductSearchDetailsState createState() => _ProductSearchDetailsState();
@@ -40,14 +38,14 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
           Expanded(
             child: Container(
               height: productCartDetailsHeight,
-              child: Image.asset(
-                "assets/images/whey.png",
-                fit: BoxFit.contain,
-              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(globalRadius)),
               ),
               clipBehavior: Clip.antiAlias,
+              child: Image.asset(
+                "assets/images/whey.png",
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           SizedBox(
@@ -70,7 +68,7 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
                             fontWeight: FontWeight.w800),
                       ),
                       IconButton(
-                          onPressed: () => {}, icon: Icon(Icons.share_outlined))
+                          onPressed: () => {}, icon: const Icon(Icons.share_outlined))
                     ],
                   ),
                   Text(
@@ -89,9 +87,9 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
                     minRating: 1,
                     direction: Axis.horizontal,
                     itemCount: 5,
-                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
                     itemSize: 20.0,
-                    itemBuilder: (context, _) => Icon(
+                    itemBuilder: (context, _) => const Icon(
                       Icons.star,
                       color: Colors.amber,
                     ),
@@ -103,7 +101,7 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        FittedBox(
+                        const FittedBox(
                           child: Column(
                             children: [
                               PriceOnSale(
@@ -114,7 +112,7 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.shopping_cart_checkout_outlined),
+                          icon: const Icon(Icons.shopping_cart_checkout_outlined),
                           color: Theme.of(context).colorScheme.tertiary,
                           onPressed: () {
                             // Add your onPressed code here!
@@ -130,7 +128,7 @@ class _ProductSearchDetailsState extends State<ProductSearchDetails> {
           ),
         ],
       ),
-      HorizontalLine(
+      const HorizontalLine(
         thickness: 6,
       )
     ]);

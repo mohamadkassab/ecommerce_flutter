@@ -1,12 +1,12 @@
 import 'package:ecommerce_application/app/app_config.dart';
-import 'package:ecommerce_application/app/theme.dart';
 import 'package:ecommerce_application/components/checkbox/checkbox_text.dart';
 import 'package:ecommerce_application/components/line/horizontal_line.dart';
+import 'package:ecommerce_application/components/shared/quantity_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductCartDetails extends StatefulWidget {
-  ProductCartDetails({super.key});
+  const ProductCartDetails({super.key});
 
   @override
   _ProductCartDetailsState createState() => _ProductCartDetailsState();
@@ -66,7 +66,7 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
           ),
           IconButton(
             onPressed: () => {},
-            icon: Icon(Icons.delete_outline),
+            icon: const Icon(Icons.delete_outline),
             color: Theme.of(context).colorScheme.primary,
           )
         ],
@@ -76,14 +76,14 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
           Expanded(
             child: Container(
               height: productCartDetailsHeight,
-              child: Image.asset(
-                "assets/images/whey.png",
-                fit: BoxFit.contain,
-              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(globalRadius)),
               ),
               clipBehavior: Clip.antiAlias,
+              child: Image.asset(
+                "assets/images/whey.png",
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           SizedBox(
@@ -123,9 +123,9 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
                     minRating: 1,
                     direction: Axis.horizontal,
                     itemCount: 5,
-                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
                     itemSize: 24.0,
-                    itemBuilder: (context, _) => Icon(
+                    itemBuilder: (context, _) => const Icon(
                       Icons.star,
                       color: Colors.amber,
                     ),
@@ -142,38 +142,7 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            child: Row(
-              children: [
-                Text(
-                  'Quantity:',
-                  style: TextStyle(
-                      fontSize: subHeadingFontSize,
-                      fontWeight: headingFontWeight),
-                ),
-                SizedBox(
-                  width: scaffoldPadding,
-                ),
-                SizedBox(
-                  width: 40,
-                  child: DropdownButton<String>(
-                    value: selectedValue,
-                    items: dropdownItems.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (newValue) {
-                      setState(() {
-                        selectedValue = newValue;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const QuantityDropdown(),
           Text(
             '\$${_price.toStringAsFixed(2)}',
             style: TextStyle(
@@ -181,7 +150,7 @@ class _ProductCartDetailsState extends State<ProductCartDetails> {
           ),
         ],
       ),
-      HorizontalLine(
+      const HorizontalLine(
         thickness: 6,
       )
     ]);

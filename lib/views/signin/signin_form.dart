@@ -79,11 +79,11 @@ class _SignupFormState extends State<SigninForm> {
                   },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
-                    minimumSize: Size(0, 0),
+                    minimumSize: const Size(0, 0),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     alignment: Alignment.centerLeft,
                   ),
-                  child: Text('Change'),
+                  child: const Text('Change'),
                 ),
               ],
             ),
@@ -139,7 +139,7 @@ class _SignupFormState extends State<SigninForm> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  minimumSize: Size(0, 0),
+                  minimumSize: const Size(0, 0),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerLeft,
                 ),
@@ -151,8 +151,7 @@ class _SignupFormState extends State<SigninForm> {
             ],
           ),
           SizedBox(height: sizedBoxHeight),
-          PrimaryButton(
-              text: 'Sign in', width: double.infinity, onPressed: () async {}),
+          PrimaryButton(text: 'Sign in', onPressed: () async {}),
         ],
       ),
     );

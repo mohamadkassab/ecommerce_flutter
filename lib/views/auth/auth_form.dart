@@ -74,7 +74,6 @@ class _SigninFormState extends State<AuthForm> {
           SizedBox(height: sizedBoxHeight),
           PrimaryButton(
               text: 'Continue',
-              width: double.infinity,
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
@@ -119,11 +118,11 @@ class _SigninFormState extends State<AuthForm> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  minimumSize: Size(0, 0),
+                  minimumSize: const Size(0, 0),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerLeft,
                 ),
-                child: Text('Terms and Conditions '),
+                child: const Text('Terms and Conditions '),
               ),
               Text(
                 "and ",
@@ -139,11 +138,11 @@ class _SigninFormState extends State<AuthForm> {
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  minimumSize: Size(0, 0),
+                  minimumSize: const Size(0, 0),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   alignment: Alignment.centerLeft,
                 ),
-                child: Text('Privacy Policy.'),
+                child: const Text('Privacy Policy.'),
               ),
             ],
           ),

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-class PrimaryButton extends StatelessWidget {
+class TeriteryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final double width;
   final double elevation;
 
-  const PrimaryButton({
+  const TeriteryButton({
     super.key,
     required this.text,
     required this.onPressed,
+    this.width = double.infinity,
     this.elevation = 0,
   });
 
@@ -17,7 +19,7 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.tertiary,
         foregroundColor: Theme.of(context).colorScheme.surface,
         elevation: elevation,
       ),

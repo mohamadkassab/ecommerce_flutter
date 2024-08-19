@@ -15,13 +15,17 @@
 //   }
 // }
 
-import 'package:ecommerce_application/views/cart/cart_page.dart';
-import 'package:ecommerce_application/views/categories/categories_page.dart';
-import 'package:ecommerce_application/views/home/search_page.dart';
+import 'package:ecommerce_application/views/home/account_pages/account_page.dart';
+import 'package:ecommerce_application/views/home/account_pages/account_information_page.dart';
+import 'package:ecommerce_application/views/home/account_pages/customer_service.dart';
+import 'package:ecommerce_application/views/home/account_pages/language_currency_page.dart';
+import 'package:ecommerce_application/views/home/account_pages/languages.dart';
+import 'package:ecommerce_application/views/home/account_pages/orders_page.dart';
+import 'package:ecommerce_application/views/home/cart_pages.dart/cart_page.dart';
+import 'package:ecommerce_application/views/home/categories_pages.dart/categories_page.dart';
 import 'package:ecommerce_application/views/home/home_page.dart';
-import 'package:ecommerce_application/views/account/account_page.dart';
-import 'package:ecommerce_application/views/account/sub_pages/account_information_page.dart';
-import 'package:ecommerce_application/views/account/sub_pages/orders_page.dart';
+import 'package:ecommerce_application/views/home/search_pages/search_page.dart';
+import 'package:ecommerce_application/views/home/search_pages/product_details_page.dart';
 import 'package:ecommerce_application/views/signin/forgot_password_page.dart';
 import 'package:ecommerce_application/views/signin/signin_page.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +37,8 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return _createPageRoute(const HomePage());
+      case '/auth':
+        return _createPageRoute(const AuthPage());
       case '/signup':
         return _createPageRoute(const SignupPage());
       case '/signin':
@@ -53,8 +59,16 @@ class AppRouter {
         return _createPageRoute(const AccountInformationPage());
       case '/search':
         return _createPageRoute(const SearchPage());
+      case '/product_details':
+        return _createPageRoute(const ProductDetailsPage());
+      case '/language_currency':
+        return _createPageRoute(const LanguageCurrencyPage());
+      case '/languages':
+        return _createPageRoute(const LanguagesPage());
+      case '/customer_service':
+        return _createPageRoute(const CustomerServicePage());
       default:
-        return _createPageRoute(const AuthPage());
+        return _createPageRoute(const HomePage());
     }
   }
 
